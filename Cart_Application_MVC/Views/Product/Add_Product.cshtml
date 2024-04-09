@@ -1,0 +1,59 @@
+﻿@model Cart_Application_MVC.Models.ProductModel;
+@{
+    ViewData["Title"] = "Add_Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-header bg-success text-white text-uppercase">
+        <h4>Add Product</h4>
+    </div>
+    <div class="card-body">
+        <form asp-action="Add_Product" method="post">
+            <div class="form-group">
+                <label for="ProductId">ProductId</label>
+                <input type="text" asp-for="ProductId" class="form-control" id="ProductId">
+                <span asp-validation-for="ProductId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ProductName">
+                    ProductName
+                </label>
+                <input type="text" asp-for="ProductName" class="form-control"
+                       id="ProductName">
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="CategoryId">
+                    CategoryId
+                </label>
+                <input type="text" asp-for="CategoryId" class="form-control" id="CategoryId">
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Price">
+                    Price
+                </label>
+                <input type="text" asp-for="Price" class="form-control" id="Price">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="QuantityAvailable">
+                    QuantityAvailable
+                </label>
+                <input type="text" asp-for="QuantityAvailable" class="form-control" id="QuantityAvailable">
+                <span asp-validation-for="QuantityAvailable" class="text-danger"></span>
+            </div>
+            
+            <button type="submit" class="btn btn-outline-success rounded-0">Submit</button>
+        </form>
+        @if (TempData["msg"] != null)
+        {
+            <script>
+                alert('@TempData["msg"].ToString();');
+                window.location.href = "@Url.Action("Product_List","Product")";
+            </script>
+        }
+    </div>
+</div>
+
+

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<CategoryModel>;
+@{
+    ViewData["Title"] = "Category_List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h1 style="text-align:center;">Category Details</h1>
+    <table class="table table-bordered table-responsive table-hover">
+
+        @foreach (CategoryModel item in Model)
+        {
+            <tr>
+                <td>@item.Category_Id</td>
+                <td>@item.Category_Name</td>
+                <td>
+                    <a asp-action="" class="btn btn-outline-success" asp-route-id="@item.Category_Id">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="" class="btn btn-outline-danger" asp-route-id="@item.Category_Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

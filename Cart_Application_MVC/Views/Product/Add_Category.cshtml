@@ -1,0 +1,34 @@
+﻿@model CategoryModel;
+@{
+    ViewData["Title"] = "Add_Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header bg-success text-white text-uppercase">
+        <h4>Add Category</h4>
+    </div>
+    <div class="card-body">
+        <form asp-action="Add_Category" method="post">
+            
+            <div class="form-group">
+                <label for="Category_Name">
+                    CategoryName
+                </label>
+                <input type="text" asp-for="Category_Name" class="form-control"
+                       id="Category_Name">
+                <span asp-validation-for="Category_Name" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-outline-success rounded-0">Submit</button>
+        </form>
+        @if (TempData["msg"] != null)
+        {
+            <script>
+                alert('@TempData["msg"].ToString();');
+                window.location.href = "@Url.Action("Category_List","Product")";
+            </script>
+        }
+    </div>
+</div>
+

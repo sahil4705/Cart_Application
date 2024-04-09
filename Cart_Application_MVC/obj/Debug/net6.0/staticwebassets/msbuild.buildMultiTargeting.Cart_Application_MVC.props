@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Cart_Application_MVC.props" />
+</Project>

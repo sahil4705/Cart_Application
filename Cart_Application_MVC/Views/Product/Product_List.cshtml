@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ProductModel>;
+
+@{
+    ViewData["Title"] = "Product_List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h1 style="text-align:center;">Product Details</h1>
+    <table class="table table-bordered table-responsive table-hover">
+      
+        @foreach (ProductModel item in Model)
+         {
+             <tr>
+                 <td>@item.ProductId</td>
+                 <td>@item.ProductName</td>
+                 <td>@item.CategoryId</td>
+                 <td>@item.Price</td>
+                 <td>@item.QuantityAvailable</td>
+                 <td>
+                    <a asp-action="" class="btn btn-outline-success" asp-route-id="@item.ProductId">Edit</a>
+                 </td>
+                 <td>
+                    <a asp-action="" class="btn btn-outline-danger" asp-route-id="@item.ProductId">Delete</a>
+                 </td>
+             </tr>
+         }
+    </table>
+</div>
+
